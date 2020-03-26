@@ -1,0 +1,1 @@
+System.register(["./p-512e9f65.system.js"],(function(){"use strict";var e,s;return{setters:[function(t){e=t.p;s=t.b}],execute:function(){e().then(e=>s([["p-c5904fe3.system",[[1,"web-social-share",{show:[1028],share:[16]}]]]],e))}}}));
