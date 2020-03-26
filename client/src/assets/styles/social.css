@@ -1,0 +1,11 @@
+.icon-social {
+    width: 1em;
+    margin-top: 1em;
+    transition-duration: .3s;
+    opacity: 85%;
+}
+
+.icon-social:hover {
+    transform: scale(1.3);
+    opacity: 100%;
+}

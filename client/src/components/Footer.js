@@ -1,8 +1,9 @@
 import React from 'react';
 import logoWhite from "../assets/img/logo_white@2x.png";
 
-export default function Footer() {
+import Social from './Social';
 
+export default function Footer() {
   return (
     <div className="bg-new-navy pt-12">
       <div>
@@ -14,6 +15,7 @@ export default function Footer() {
               Register your Charity
             </div>
             <div className="text-xs text-gray-400">FAQs</div>
+            <Social />
           </div>
         </div>
         <div className="flex-initial text-gray-300 text-xs py-3 w-full text-center ">
