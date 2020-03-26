@@ -2,7 +2,3 @@
 # yarn lockfile v1
 
 
-web-social-share@^6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/web-social-share/-/web-social-share-6.4.0.tgz#fd6ba3c22df25065ab22593045881d1173c37051"
-  integrity sha512-zUDs+yekRJTAORLceFEZUEnqTXpvRwDPBcOkEA03Ukp1m+gR8CME750IeRX8wKE7K0rJCvtBV6irBfidf9YPwg==
