@@ -27,10 +27,12 @@ export default function Home() {
   const { isShowing, toggle } = useDialog();
 
   let planList = [];
-  for (const key in items) {
-    const list = items[key];
-    planList = planList.concat(list.map((elem) => elem.id));
-  }
+  React.useEffect(() => {
+    for (const key in items) {
+      const list = items[key];
+      planList = planList.concat(list.map((elem) => elem.id));
+    }
+  }, []);
 
   return (
     <>
@@ -43,7 +45,7 @@ export default function Home() {
         <Register />
       </Layout>
       <Dialog isLarge={true} isShowing={isShowing} hide={toggle}>
-        <h1 className="font-header text-center text-2xl sm:text-3xl font-bold text-new-red leading-tight mb-2 sm:mb-4">
+        <h1 className='font-header text-center text-2xl sm:text-3xl font-bold text-new-red leading-tight mb-2 sm:mb-4'>
           Select a plan
         </h1>
 
@@ -58,13 +60,13 @@ export default function Home() {
           />@CharityShopEx</a>
         </p> */}
       </Dialog>
-      <div className="invisible">
+      <div className='invisible'>
         {planList.map((planId) => (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a
             key={planId}
-            href="#"
-            data-cb-type="checkout"
+            href='#'
+            data-cb-type='checkout'
             data-cb-plan-id={planId}
             // className="invisible"
             id={'plan:' + planId}
