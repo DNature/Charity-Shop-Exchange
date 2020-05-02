@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useReducer  } from 'react';
 import {
   Filters,
   ResourceItem,
@@ -6,6 +6,8 @@ import {
   ResourceList,
   TextStyle,
 } from '@shopify/polaris';
+import Reducer, { ItemsContext, initialState } from '../context/Reducer';
+import { ADD_GENRE } from '../context/types';
 
 export default function PlanList({
   items = [],
@@ -13,6 +15,8 @@ export default function PlanList({
 }) {
   const [queryValue, setQueryValue] = useState(null);
   const [listValue, setListValue] = useState(items);
+
+  const [state, dispatch] = useReducer( Reducer, initialState );
 
   const handleQueryValueChange = useCallback(
     (value) => {
@@ -52,22 +56,33 @@ export default function PlanList({
     ></Filters>
   );
 
-  const onPlanSelect = (id) => {
-    console.log('Plan ' + id + ' is slected');
-    const elem = document.getElementById('plan:' + id);
-    console.log(elem);
-    elem.click();
+  const onPlanSelect = ( id ) => {
+    console.log( 'Plan ' + id + ' is slected' );
+    dispatch( {
+      type: ADD_GENRE,
+      payload: id,
+    } );
   };
 
   return (
-    <Card>
-      <ResourceList
-        resourceName={resourceName}
-        items={listValue}
-        renderItem={renderItem}
-        filterControl={filterControl}
-      />
-    </Card>
+    <ItemsContext.Provider
+      value={{
+        selectedItems: state.selectedItems,
+        addItem: handleQueryValueChange,
+      }}
+    >
+      <Card>
+        <ResourceList
+          resourceName={resourceName}
+          items={listValue}
+          selectable
+          renderItem={renderItem}
+          filterControl={filterControl}
+          selectedItems={state.selectedItems}
+          onSelectionChange={onPlanSelect}
+        />
+      </Card>
+    </ItemsContext.Provider>
   );
 
   function renderItem(item) {
