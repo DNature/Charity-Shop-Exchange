@@ -9,7 +9,7 @@ export default function Checkout({ current, setCurrent }) {
 
   return (
     <Card.Section title={'Checkout'}>
-      <Card>
+      <div className='mb-6'>
         <h3>
           <TextStyle variation='strong'>DVDs</TextStyle>
         </h3>
@@ -21,8 +21,8 @@ export default function Checkout({ current, setCurrent }) {
               </li>
             ))}
         </ul>
-      </Card>
-      <Card>
+      </div>
+      <div className='mb-6'>
         <h3>
           <TextStyle variation='strong'>Books</TextStyle>
         </h3>
@@ -34,7 +34,14 @@ export default function Checkout({ current, setCurrent }) {
               </li>
             ))}
         </ul>
-      </Card>
+      </div>
+      <div className='mb-6'>
+        <h3>
+          <TextStyle variation='strong'>
+            Total : {books.length + dvds.length}
+          </TextStyle>
+        </h3>
+      </div>
       <div className='flex justify-between flex-wrap mt-6'>
         <div>
           <Button
