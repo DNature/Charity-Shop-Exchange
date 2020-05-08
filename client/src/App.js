@@ -10,31 +10,34 @@ import Register from './pages/Register';
 import Faq from './pages/Faq';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import ItemsProvider from './components/context/Provider';
 
 function App() {
   return (
-    <AppProvider i18n={enTranslations}>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/register">
-          <Register />
-        </Route>
-        <Route path="/faq">
-          <Faq />
-        </Route>
-        <Route path="/privacy">
-          <Privacy />
-        </Route>
-        <Route path="/terms">
-          <Terms />
-        </Route>
-      </Switch>
-    </AppProvider>
+    <ItemsProvider>
+      <AppProvider i18n={enTranslations}>
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/register'>
+            <Register />
+          </Route>
+          <Route path='/faq'>
+            <Faq />
+          </Route>
+          <Route path='/privacy'>
+            <Privacy />
+          </Route>
+          <Route path='/terms'>
+            <Terms />
+          </Route>
+        </Switch>
+      </AppProvider>
+    </ItemsProvider>
   );
 }
 
