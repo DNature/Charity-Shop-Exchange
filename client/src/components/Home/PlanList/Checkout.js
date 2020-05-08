@@ -37,8 +37,8 @@ export default function Checkout({ current, setCurrent }) {
       </div>
       <div className='mb-6'>
         <h3>
-          <TextStyle variation='strong'>
-            Total : {books.length + dvds.length}
+          <TextStyle variation='subdued'>
+            Total : {books.length + dvds.length} Items
           </TextStyle>
         </h3>
       </div>
