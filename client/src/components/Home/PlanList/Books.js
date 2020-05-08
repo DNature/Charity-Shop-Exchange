@@ -13,7 +13,7 @@ import Button from '../../Button';
 export default function Books({ current, setCurrent }) {
   const { addBook, books } = useContext(ItemsContext);
   const [queryValue, setQueryValue] = useState(null);
-  const [listValue, setListValue] = useState(items.dvd);
+  const [listValue, setListValue] = useState(items.books);
 
   const handleQueryValueChange = useCallback(
     (value) => {
